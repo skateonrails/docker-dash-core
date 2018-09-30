@@ -12,6 +12,7 @@ env:
 language: bash
 
 script:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD >/dev/null 2>&1
   - docker build -t "$IMAGE" .
   - docker run "$IMAGE" --version | grep "Dash Core"
 
